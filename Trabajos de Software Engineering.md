@@ -3,6 +3,8 @@
 ##Trabajos de Software Engineering
 ##Organizador Visual
 ##Cod Latex
+
+
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc} % Required for inserting images
 \usepackage{schemata}
