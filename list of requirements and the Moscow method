@@ -1,0 +1,110 @@
+#mis requerimientos del proyecto
+
+
+          \documentclass[12pt]{article}
+          \usepackage[utf8]{inputenc} % Required for inserting images
+          \usepackage{schemata}
+          \usepackage[margin=1in]{geometry}     % For setting margins
+          \usepackage{amsmath}                % For Math
+          \usepackage{fancyhdr}                % For fancy header/footer
+          \usepackage{graphicx}                % For including figure/image
+          \usepackage{cancel}                % To use the slash to cancel out stuff in work
+          \usepackage[spanish]{babel}
+          \usepackage{hyperref}
+          \usepackage{listings}
+          \usepackage[utf8]{inputenc}
+          \usepackage{listingsutf8}
+          \usepackage{lipsum} % For generating dummy text
+          
+          \begin{document}
+          
+          % Carátula
+          \begin{titlepage}
+              \centering
+              \vspace{1cm}
+              {\LARGE UNIVERSIDAD NACIONAL DEL ALTIPLANO \par}
+              \vspace{0.5cm}
+              {\Large "FACULTAD DE INGENIERÍA ESTADÍSTICA E INFORMÁTICA" \par}
+          
+              \vspace{1cm}
+              \includegraphics[width=5cm]{Logo_UNAP.png} % Cambia "nombre_de_la_imagen" por el nombre de tu archivo de imagen con su extensión, por ejemplo, "imagen.png"
+              \vspace{1cm}
+              
+              {\Huge  Application for Local Product Marketing \par}
+              \vspace{0.5cm}
+              {\large Student: \par}
+              {\large TAPARA TRISTAN DENILZON ROBINHO \par}
+          
+              \vspace{0.2cm}
+              {\large Teacher: \par}
+              {\large TORRES CRUZ FRED \par}
+              \vspace{0.2cm}
+              {\large Course: \par}
+              {\large SOFTWARE ENGINEERING \par}
+              \vspace{0.2cm}
+              {\large SEMESTER VII \par}
+              \vspace{0.2cm}
+              {\large PUNO, PERÚ \par}
+              {\large Mayo 8, 2024 \par}
+          \end{titlepage}
+          \newpage
+          \section*{Description}
+          A digital platform where farmers and artisans from Puno can directly offer their products to local consumers and tourists.
+          
+          \section*{General Description}
+          Our application aims to promote local commerce in Puno by directly connecting local farmers and artisans with local consumers and tourists. We facilitate a digital market where producers can showcase their unique and high-quality products, and buyers can explore and purchase a wide variety of local products. By fostering local trade, we hope to strengthen the region's economy, support small producers, and preserve Puno's cultural and artisanal traditions. Expected benefits include increased income for local producers, greater visibility for their products, and a more authentic and enriching shopping experience for consumers.
+          
+          \section*{Functional Requirements}
+          \begin{enumerate}
+              \item User Registration: Allow producers and consumers to register on the platform.
+              \item Product Catalog: Display a list of local products available for sale.
+              \item Product Details: Provide detailed information about each product, including description, price, and photos.
+              \item Search and Filter System: Allow users to search for products by category, price, location, etc.
+              \item Shopping Cart: Allow users to add products to the cart and make purchases.
+              \item Order Management: Allow users to view the status of their orders and receive notifications about progress.
+              \item Ratings and Comments: Allow users to leave ratings and comments on products and sellers.
+              \item Payment Methods: Support multiple secure payment methods, such as credit cards, bank transfers, etc.
+              \item Delivery Options: Offer home delivery and pickup point options.
+          \end{enumerate}
+          
+          \section*{Non-Functional Requirements}
+          \begin{enumerate}
+              \item Performance: The application must be fast and efficient, supporting a large number of simultaneous users.
+              \item Security: Ensure the security of user data and financial transactions.
+              \item Compatibility: The application must be compatible with a variety of devices and web browsers.
+              \item Usability: The user interface must be intuitive and easy to use for all types of users.
+              \item Scalability: The application must be able to grow and adapt as demand increases.
+              \item Availability: The application must be available 24 hours a day, 7 days a week, with minimal planned downtime.
+              \item Localization: The application must be localizable so that users can access it in different languages and currencies.
+          \end{enumerate}
+          
+          \section*{Requirements Classification (MoSCoW method)}
+          \subsection*{Must have:}
+          \begin{itemize}
+              \item User Registration
+              \item Product Catalog
+              \item Product Details
+              \item Shopping Cart
+              \item Order Management
+              \item Payment Methods
+          \end{itemize}
+          
+          \subsection*{Should have:}
+          \begin{itemize}
+              \item Ratings and Comments
+              \item Delivery Options
+          \end{itemize}
+          
+          \subsection*{Could have:}
+          \begin{itemize}
+              \item Advanced Search and Filter System
+              \item Integration with Social Networks
+          \end{itemize}
+          
+          \subsection*{Will not have:}
+          \begin{itemize}
+              \item Real-time chat functionalities between buyers and sellers
+              \item Integration with specific local payment systems (due to time and resource limitations)
+          \end{itemize}
+          
+          \end{document} 
