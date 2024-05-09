@@ -1,0 +1,637 @@
+%IEEE 830 DENILZON ROBINHO TAPARA TRISTAN
+  \documentclass[12pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage[utf8]{inputenc} % Required for inserting images
+\usepackage{schemata}
+\usepackage[margin=1in]{geometry}     % For setting margins
+\usepackage{amsmath}                % For Math
+\usepackage{fancyhdr}                % For fancy header/footer
+\usepackage{graphicx}                % For including figure/image
+\usepackage{cancel}                % To use the slash to cancel out stuff in work
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{listingsutf8}
+\usepackage{lipsum} % For generating dummy text
+
+\begin{document}
+
+% Carátula
+\begin{titlepage}
+    \centering
+    \vspace{1cm}
+    {\LARGE UNIVERSIDAD NACIONAL DEL ALTIPLANO \par}
+    \vspace{0.5cm}
+    {\Large "FACULTAD DE INGENIERÍA ESTADÍSTICA E INFORMÁTICA" \par}
+
+    \vspace{1cm}
+    \includegraphics[width=5cm]{Logo_UNAP.png} % Cambia "nombre_de_la_imagen" por el nombre de tu archivo de imagen con su extensión, por ejemplo, "imagen.png"
+    \vspace{1cm}
+    
+    {\Huge  Aplicación para la comercialización de productos locales \par}
+    \vspace{0.5cm}
+    {\large Student: \par}
+    {\large TAPARA TRISTAN DENILZON ROBINHO \par}
+
+\
+    {\large Teacher: \par}
+    {\large TORRES CRUZ FRED \par}
+    \vspace{0.2cm}
+    {\large Course: \par}
+    {\large SOFTWARE ENGINEERING \par}
+    \vspace{0.2cm}
+    {\large SEMESTER VII \par}
+    \vspace{0.2cm}
+    {\large PUNO, PERÚ \par}
+    {\large Mayo 8, 2024 \par}
+\end{titlepage}
+\newpage
+
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[LO]{\emph{\uppercase{\leftmark}}}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{1.0pt}
+\pagestyle{fancy}
+\date{}
+\title{IEEE-830}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={IEEE-830},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.1.9)}, 
+ pdflang={English}}
+
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Introducción}
+\label{sec:org60390fa}
+
+En el corazón de la encantadora región de Puno, Perú, surge una iniciativa innovadora destinada a fortalecer la economía local y celebrar la rica diversidad cultural de nuestra comunidad. Presentamos con orgullo nuestra plataforma digital de intercambio de productos locales, un espacio vibrante y dinámico que conecta a los talentosos productores y artesanos de nuestra región con consumidores ávidos de autenticidad y calidad.
+
+Sin embargo, a menudo, estos tesoros locales permanecen ocultos para el mundo exterior, relegados a los rincones más remotos de nuestra tierra. Es hora de cambiar eso.
+
+Nuestra aplicación web se erige como un puente entre el pasado y el futuro, entre la tradición y la innovación. Aquí, los productores locales pueden dar a conocer sus creaciones únicas al mundo entero, mientras que los consumidores pueden explorar y adquirir una amplia variedad de productos locales directamente desde la comodidad de sus hogares.
+
+Ya sea que estés buscando textiles tejidos a mano con técnicas ancestrales, delicias culinarias elaboradas con ingredientes frescos de nuestra tierra fértil o artesanías que capturan la esencia misma de nuestra cultura, nuestra plataforma tiene algo para todos los gustos y necesidades.
+
+Únete a nosotros en este emocionante viaje hacia la promoción del comercio local, la preservación de nuestras tradiciones y el fortalecimiento de nuestra comunidad. Juntos, estamos escribiendo un nuevo capítulo en la historia de Puno, uno que está lleno de oportunidades, conexiones y orgullo local.
+
+¡Bienvenidos a la nueva era del intercambio de productos locales en Puno!
+
+
+\subsection{Propósito}
+\label{sec:org434c3ef}
+
+Este documento está diseñado para atender las necesidades de varios destinatarios clave:
+
+\begin{itemize}
+\item Equipo de desarrollo: Este documento actúa como un recurso esencial para los desarrolladores, proporcionándoles una comprensión completa de los requisitos específicos que deben ser implementados en la aplicación web. Les ayuda a planificar, diseñar y desarrollar el sistema de manera efectiva y eficiente.
+\item Clientes y stakeholders: Los clientes y stakeholders son los beneficiarios primarios de la aplicación web y, como tales, necesitan una comprensión clara y detallada de su funcionalidad y alcance. Este documento les proporciona una visión holística de cómo el sistema satisfará sus necesidades y requisitos, permitiéndoles tomar decisiones informadas sobre el proyecto.
+\item Equipo de pruebas: El equipo de pruebas utiliza este documento como referencia principal para diseñar y ejecutar pruebas exhaustivas que validen la funcionalidad y el rendimiento del sistema. Les ayuda a identificar escenarios de prueba relevantes y a garantizar que el sistema cumpla con los estándares de calidad definidos.
+\item Equipo de mantenimiento: A lo largo del ciclo de vida del sistema, el equipo de mantenimiento utiliza este documento como una guía para realizar actualizaciones, mejoras y correcciones de errores. Proporciona una base sólida para comprender la arquitectura y los requisitos del sistema, lo que facilita la implementación de cambios sin problemas.
+\end{itemize}
+
+\subsection{Ámbito del sistema}
+\label{sec:org12e44a1}
+
+En esta subseccion:
+    \vspace{0.1cm}
+\textbf{Nombre del sistema:} PunoMarket
+
+\textbf{Lo que el sistema hará:}
+PunoMarket será una plataforma web que permitirá a los productores locales de Puno, Perú, exhibir y vender sus productos directamente a los consumidores locales y turistas. Los usuarios podrán explorar un catálogo diverso de productos locales, realizar pedidos en línea, pagar de forma segura y seleccionar opciones de entrega convenientes.
+
+\textbf{Lo que el sistema no hará:}
+PunoMarket no se involucrará en la producción física de los productos ni en la gestión de la logística de entrega. Además, el sistema no será responsable de la calidad o integridad de los productos ofrecidos por los vendedores locales. Tampoco proporcionará servicios de intermediación financiera más allá de facilitar la transacción entre compradores y vendedores.
+
+\textbf{Beneficios, objetivos y metas:}
+\begin{itemize}
+  \item \textbf{Beneficios:}
+    \begin{itemize}
+      \item Promoción del comercio local y apoyo a los productores y artesanos locales.
+      \item Acceso conveniente a una amplia variedad de productos locales para los consumidores.
+      \item Fomento del turismo sostenible al ofrecer productos auténticos y únicos.
+      \item Impulso a la economía local al generar ingresos adicionales para los productores.
+    \end{itemize}
+  \item \textbf{Objetivos y metas:}
+    \begin{itemize}
+      \item Facilitar una experiencia de compra en línea segura y conveniente para los usuarios.
+      \item Incrementar la visibilidad y accesibilidad de los productos locales en el mercado.
+      \item Fomentar la colaboración y la conexión entre productores y consumidores locales.
+      \item Promover la preservación de la cultura y las tradiciones locales a través del comercio justo y sostenible.
+    \end{itemize}
+\end{itemize}
+\subsection{Definiciones, Acrónimos y Abreviaturas}
+\label{sec:orgb158e36}
+\begin{itemize}
+\item PunoMarket: Plataforma web de intercambio de productos locales en la región de Puno, Perú.
+\item ERS: Especificación de Requisitos de Software, el documento que describe los requisitos funcionales y no funcionales del sistema.
+\item Usuarios: Personas que utilizan la plataforma PunoMarket, incluyendo productores locales y consumidores.
+\item Productores locales: Individuos o empresas que ofrecen productos locales en la plataforma PunoMarket.
+Consumidores: Personas que compran productos a través de la plataforma PunoMarket.
+\item Catálogo de productos: Lista de productos disponibles para la venta en la plataforma PunoMarket.
+\item Carrito de compras: Funcionalidad que permite a los usuarios agregar productos y proceder con el pago.
+\item Métodos de pago: Opciones disponibles para realizar transacciones monetarias en la plataforma, como tarjetas de crédito, transferencias bancarias, etc.
+\item Entrega a domicilio: Opción de envío de productos directamente a la dirección del usuario.
+\item Puntos de recogida: Lugares designados donde los usuarios pueden recoger sus pedidos.
+\item Calificaciones y comentarios: Sistema que permite a los usuarios evaluar y dejar comentarios sobre productos y vendedores.
+\item Administrador del sistema: Persona responsable de la gestión y mantenimiento de la plataforma PunoMarket.
+\item URL: Dirección web única que identifica la ubicación de la plataforma PunoMarket en Internet.
+\item SSL: Capa de sockets seguros, utilizado para garantizar la seguridad de las transacciones en línea en la plataforma PunoMarket.
+ \end{itemize}
+
+\subsection{Referencias}
+\label{sec:org62711e0}
+
+\begin{itemize}
+\item Documentación de usuario: Guía fácil de entender para los usuarios finales sobre cómo utilizar la aplicación, incluyendo instrucciones paso a paso, capturas de pantalla y ejemplos prácticos.
+\item Página web oficial de PunoMarket: Una página web informativa que proporciona detalles sobre la aplicación, su propósito, características principales y cómo comenzar a usarla.
+\item Canal de soporte y ayuda: Un canal de soporte accesible desde la aplicación, que ofrece respuestas claras y rápidas a las preguntas frecuentes, así como la posibilidad de contactar al equipo de soporte en caso de problemas.
+\item Tutoriales en video: Videos cortos y simples que muestran cómo realizar tareas específicas en la aplicación, como buscar productos, hacer pedidos o dejar comentarios.
+
+\item Foro de la comunidad: Un espacio en línea donde los usuarios pueden compartir experiencias, hacer preguntas y obtener consejos sobre cómo aprovechar al máximo la aplicación.
+
+\item Redes sociales: Perfiles en redes sociales donde los usuarios pueden seguir a PunoMarket para recibir noticias, actualizaciones y contenido relacionado con la comunidad.
+
+\end{itemize}
+
+\subsection{Visión general del documento}
+\label{sec:orgdaca22c}
+
+ Esta plataforma servirá como un mercado digital donde los productores locales pueden mostrar y vender sus productos directamente a los consumidores locales y turistas. La visión general del proyecto abarca los siguientes aspectos:
+\begin{itemize}
+\item Contenidos:
+ Una visión general de la aplicación web PunoMarket y sus funcionalidades clave, una lista detallada de los requisitos funcionales y no funcionales del sistema, una descripción de la estructura técnica y el diseño de la aplicación, detalles sobre la planificación, programación y ejecución del proyecto, procedimientos para probar y validar el sistema antes de su lanzamiento, instrucciones y guías para ayudar a los usuarios a utilizar la plataforma de manera efectiva.
+
+\item Organización:
+El proyecto estará organizado en torno a equipos multifuncionales que trabajarán en áreas como desarrollo de software, diseño de experiencia de usuario (UX), pruebas y aseguramiento de la calidad, gestión de proyectos y soporte al cliente.
+Se establecerán reuniones regulares de equipo y puntos de control para monitorear el progreso del proyecto y abordar cualquier problema o desafío que surja.
+La comunicación clara y transparente será fundamental para mantener a todos los miembros del equipo alineados con los objetivos del proyecto y asegurar una colaboración efectiva.
+\end{itemize}
+
+\section{Descripción general del documento}
+\label{sec:orgc1c4017}
+
+La aplicación tiene como objetivo promover el comercio local en Puno conectando directamente a agricultores y artesanos locales con consumidores y turistas locales. Facilitamos un mercado digital donde los productores pueden exhibir sus productos únicos y de alta calidad, y los compradores pueden explorar y comprar una amplia variedad de productos locales. Al fomentar el comercio local, esperamos fortalecer la economía de la región, apoyar a los pequeños productores y preservar las tradiciones culturales y artesanales de Puno. Los beneficios esperados incluyen mayores ingresos para los productores locales, mayor visibilidad de sus productos y una experiencia de compra más auténtica y enriquecedora para los consumidores.
+
+\newpage
+\subsection{Perspectiva del producto}
+\label{sec:org24980a8}
+\begin{itemize}
+\item {Integración con otros servicios externos}
+
+\begin{tikzpicture}[node distance=2cm]
+    % Nodes
+    \node (punomarket) [rectangle, draw, text width=3.5cm, align=center] {PunoMarket};
+    \node (pagos) [rectangle, draw, text width=3.5cm, align=center, below of=punomarket] {Pasarelas de pago};
+    \node (entrega) [rectangle, draw, text width=3.5cm, align=center, below of=pagos] {Servicios de entrega};
+    \node (analisis) [rectangle, draw, text width=3.5cm, align=center, below of=entrega] {Servicios de análisis};
+
+    % Arrows
+    \draw [->] (punomarket) -- (pagos);
+    \draw [->] (pagos) -- (entrega);
+    \draw [->] (entrega) -- (analisis);
+\end{tikzpicture}
+
+\item {Características clave}
+
+\begin{tikzpicture}[node distance=2cm]
+    % Nodes
+    \node (plataforma) [rectangle, draw, text width=4cm, align=center] {Plataforma Intuitiva};
+    \node (productos) [rectangle, draw, text width=4cm, align=center, below of=plataforma] {Variedad de Productos};
+    \node (transparencia) [rectangle, draw, text width=4cm, align=center, below of=productos] {Transparencia y Confianza};
+    \node (apoyo) [rectangle, draw, text width=4cm, align=center, below of=transparencia] {Apoyo a los Productores Locales};
+    \node (experiencia) [rectangle, draw, text width=4cm, align=center, below of=apoyo] {Experiencia Personalizada};
+    \node (innovacion) [rectangle, draw, text width=4cm, align=center, below of=experiencia] {Innovación Continua};
+    % Arrows
+    \draw [->] (plataforma) -- (productos);
+    \draw [->] (productos) -- (transparencia);
+    \draw [->] (transparencia) -- (apoyo);
+    \draw [->] (apoyo) -- (experiencia);
+    \draw [->] (experiencia) -- (innovacion);
+\end{tikzpicture}
+\end{itemize}
+
+\newpage
+\subsection{Funciones del producto}
+\label{sec:orgaf51da6}
+
+\begin{enumerate}
+    \item \textbf{Registro de Productores:}
+    \begin{itemize}
+        \item Permitir a los productores locales registrarse en la plataforma PunoMarket.
+        \item Recopilar información básica del productor, como nombre, ubicación y tipos de productos ofrecidos.
+    \end{itemize}
+    
+    \item \textbf{Catálogo de Productos:}
+    \begin{itemize}
+        \item Exhibir una variedad de productos locales en un catálogo organizado y fácil de explorar.
+        \item Mostrar detalles de los productos, como descripción, precio, disponibilidad y calificaciones de los usuarios.
+    \end{itemize}
+    
+    \item \textbf{Búsqueda y Filtro:}
+    \begin{itemize}
+        \item Permitir a los usuarios buscar productos por categoría, palabra clave o ubicación del productor.
+        \item Ofrecer opciones de filtrado para refinar los resultados de búsqueda según criterios específicos, como precio o popularidad.
+    \end{itemize}
+    
+    \item \textbf{Carrito de Compras:}
+    \begin{itemize}
+        \item Permitir a los usuarios agregar productos a un carrito de compras virtual.
+        \item Mostrar un resumen del carrito con detalles de los productos seleccionados y el total de la compra.
+    \end{itemize}
+    
+    \item \textbf{Proceso de Compra:}
+    \begin{itemize}
+        \item Facilitar un proceso de compra fluido y seguro, con opciones de pago integradas.
+        \item Proporcionar confirmaciones de compra y recibos electrónicos una vez completada la transacción.
+    \end{itemize}
+    
+    \item \textbf{Gestión de Pedidos:}
+    \begin{itemize}
+        \item Permitir a los usuarios ver el estado de sus pedidos y recibir actualizaciones sobre el progreso de la entrega.
+        \item Facilitar la comunicación entre productores y compradores para resolver problemas o realizar cambios en los pedidos.
+    \end{itemize}
+    
+    \item \textbf{Calificaciones y Comentarios:}
+    \begin{itemize}
+        \item Permitir a los usuarios dejar calificaciones y comentarios sobre los productos y los productores.
+        \item Mostrar calificaciones y comentarios en las páginas de productos para ayudar a otros usuarios en sus decisiones de compra.
+    \end{itemize}
+    
+    \item \textbf{Perfil de Usuario:}
+    \begin{itemize}
+        \item Permitir a los usuarios crear y gestionar sus perfiles personales en la plataforma.
+        \item Incluir funciones como historial de compras, lista de deseos y ajustes de notificaciones.
+    \end{itemize}
+\end{enumerate}
+
+
+
+\subsection{Características de los usuarios}
+\label{sec:orga40b0ee}
+
+\subsection*{Productores Locales}
+\begin{itemize}
+    \item \textbf{Nivel Educativo:} Varía desde personas con educación básica hasta aquellos con educación superior.
+    \item \textbf{Experiencia:} Pueden tener experiencia previa en la producción y venta de productos locales, pero pueden ser nuevos en el comercio electrónico.
+    \item \textbf{Experiencia Técnica:} Puede variar ampliamente, desde usuarios con habilidades básicas en tecnología hasta aquellos con experiencia en el uso de herramientas digitales y redes sociales.
+\end{itemize}
+
+\subsection*{Consumidores Locales}
+\begin{itemize}
+    \item \textbf{Nivel Educativo:} Diverso, desde personas con educación básica hasta aquellas con educación superior.
+    \item \textbf{Experiencia:} Pueden tener experiencia previa en compras en línea, pero algunos pueden ser nuevos en el comercio electrónico.
+    \item \textbf{Experiencia Técnica:} Variada, desde usuarios con habilidades básicas en tecnología hasta aquellos cómodos con el uso de aplicaciones y plataformas en línea.
+\end{itemize}
+
+\subsection*{Administradores del Sistema}
+\begin{itemize}
+    \item \textbf{Nivel Educativo:} Educación superior en informática, tecnología de la información o campos relacionados.
+    \item \textbf{Experiencia:} Experiencia profesional en el desarrollo y mantenimiento de aplicaciones web y plataformas en línea.
+    \item \textbf{Experiencia Técnica:} Amplia experiencia en programación, diseño de bases de datos, seguridad informática y gestión de servidores.
+\end{itemize}
+
+
+\subsection{Restricciones}
+\label{sec:org5ca5790}
+
+\begin{enumerate}
+    \item \textbf{Políticas de la Empresa:} Deberán seguirse las políticas y regulaciones locales y nacionales relacionadas con el comercio electrónico y la protección de datos personales.
+    
+    \item \textbf{Limitaciones del Hardware:} El sistema debe ser compatible con una amplia variedad de dispositivos y sistemas operativos, incluyendo computadoras de escritorio, portátiles, tabletas y dispositivos móviles.
+    
+    \item \textbf{Interfaces con Otras Aplicaciones:} PunoMarket deberá integrarse con pasarelas de pago externas y servicios de entrega para facilitar transacciones seguras y entregas eficientes.
+    
+    \item \textbf{Operaciones Paralelas:} El sistema debe ser capaz de manejar múltiples transacciones simultáneas y operaciones de búsqueda y filtrado sin degradación del rendimiento.
+    
+    \item \textbf{Funciones de Auditoría:} Se requerirá un sistema de registro de actividades para realizar auditorías y rastrear acciones realizadas por los usuarios y el sistema.
+    
+    \item \textbf{Funciones de Control:} Se deben implementar controles de acceso y privilegios para garantizar que solo los usuarios autorizados puedan realizar ciertas acciones dentro del sistema.
+    
+    \item \textbf{Lenguaje(s) de Programación:} El desarrollo del sistema se realizará utilizando lenguajes de programación adecuados para el desarrollo web, como HTML, CSS, JavaScript para el frontend, y lenguajes como Python, Java o PHP para el backend.
+    
+    \item \textbf{Protocolos de Comunicación:} Se deben seguir estándares de protocolos de comunicación seguros, como HTTPS, para garantizar la confidencialidad y la integridad de los datos transmitidos entre el cliente y el servidor.
+    
+    \item \textbf{Requisitos de Habilidad:} El equipo de desarrollo debe contar con habilidades y experiencia en el desarrollo de aplicaciones web, seguridad informática, diseño de bases de datos y gestión de servidores.
+    
+    \item \textbf{Criticalidad de la Aplicación:} PunoMarket es crítico para el éxito de los productores locales y el comercio electrónico en la región de Puno, por lo que se requiere un alto nivel de disponibilidad, confiabilidad y rendimiento.
+    
+    \item \textbf{Consideraciones de Seguridad:} Se deben implementar medidas de seguridad robustas para proteger los datos del usuario, prevenir ataques cibernéticos y garantizar la integridad y la confidencialidad de la información del sistema.
+\end{enumerate}
+
+\subsection{Suposiciones y dependencias}
+\label{sec:org0ae23fe}
+\section*{Suposiciones y Dependencias}
+\subsection*{Suposiciones}
+\begin{enumerate}
+    \item Se presupone que los productores locales tienen acceso a internet y dispositivos adecuados para acceder a la plataforma PunoMarket.
+    \item Se supone que los consumidores locales tienen acceso a internet y dispositivos adecuados para realizar compras en línea.
+    \item Se presupone que los servicios de entrega y las pasarelas de pago externas con los que se integra PunoMarket están disponibles y son confiables.
+    \item Se supone que los usuarios tienen un nivel básico de conocimiento y habilidades para navegar y utilizar aplicaciones web.
+    \item Se presupone que la infraestructura de servidores necesaria para alojar y mantener el sistema estará disponible y funcionando correctamente.
+\end{enumerate}
+
+\subsection*{Dependencias}
+\begin{enumerate}
+    \item Los requisitos presuponen que la plataforma PunoMarket se ejecutará en un entorno web compatible con tecnologías como HTML, CSS, JavaScript y bases de datos relacionales.
+    \item El sistema depende de la disponibilidad y la confiabilidad de los servicios externos, como las pasarelas de pago y los servicios de entrega, para garantizar transacciones seguras y entregas eficientes.
+    \item Los requisitos pueden depender de regulaciones gubernamentales y políticas de privacidad que podrían cambiar con el tiempo, lo que requeriría ajustes en la plataforma para cumplir con los nuevos requisitos legales.
+    \item El desarrollo y la implementación del sistema pueden depender del presupuesto y los recursos disponibles, lo que podría afectar la capacidad para agregar nuevas características o realizar mejoras en el futuro.
+\end{enumerate}
+\subsection{Requisitos futuros}
+\label{sec:org33cfcdb}
+
+    \begin{itemize}
+        \item Funcionalidades Avanzadas de Búsqueda y Filtrado:
+Permitir a los usuarios realizar búsquedas más avanzadas, como búsqueda por características específicas de los productos o por ubicación geográfica.
+Mejorar los filtros de búsqueda para proporcionar opciones más detalladas y personalizadas.
+\item Sistema de Recomendación Personalizado:
+Implementar un sistema de recomendación basado en el historial de compras y preferencias de los usuarios para sugerir productos relevantes y aumentar las ventas cruzadas.
+\item Programación de Entregas y Recolecciones:
+Ofrecer a los usuarios la posibilidad de programar entregas y recolecciones en horarios específicos, para mayor conveniencia y flexibilidad.
+\item Soporte Multilingüe:
+Incorporar soporte para varios idiomas, lo que permitirá a usuarios de diferentes regiones acceder y utilizar la plataforma en su idioma preferido.
+\item Integración con Redes Sociales:
+Facilitar la integración con redes sociales para que los usuarios puedan compartir sus experiencias de compra y productos favoritos, lo que ayudará a aumentar la visibilidad y el alcance de PunoMarket.
+\item Programa de Fidelización de Clientes:
+Implementar un programa de fidelización de clientes con recompensas y descuentos especiales para promover la lealtad de los usuarios y aumentar la retención.
+\item Análisis Avanzado de Datos:
+Desarrollar capacidades avanzadas de análisis de datos para comprender mejor el comportamiento del usuario, identificar tendencias de compra y mejorar la toma de decisiones empresariales.
+\item Aplicación Móvil Nativa:
+Crear una aplicación móvil nativa para ofrecer una experiencia de usuario más fluida y optimizada en dispositivos móviles, aprovechando las características específicas de cada plataforma.
+\end{itemize}
+
+\section{Requisitos específicos}
+\label{sec:org40573d1}
+
+\section*{Requisitos Funcionales}
+
+\subsection*{Registro de Usuarios}
+El sistema debe permitir a los usuarios registrarse proporcionando información básica como nombre, dirección de correo electrónico y contraseña.
+
+\subsection*{Inicio de Sesión}
+Los usuarios registrados deben poder iniciar sesión utilizando su dirección de correo electrónico y contraseña.
+
+\subsection*{Gestión de Perfiles}
+Los usuarios deben poder editar su información de perfil, incluyendo detalles personales, dirección de entrega y preferencias de comunicación.
+
+\subsection*{Búsqueda de Productos}
+El sistema debe permitir a los usuarios buscar productos utilizando filtros como categoría, precio y ubicación.
+
+\subsection*{Visualización de Productos}
+Los usuarios deben poder ver información detallada de cada producto, incluyendo imágenes, descripción, precio y disponibilidad.
+
+\subsection*{Carrito de Compras}
+Los usuarios deben poder agregar productos a un carrito de compras y gestionar su contenido antes de proceder al pago.
+
+\subsection*{Proceso de Pago}
+El sistema debe facilitar a los usuarios un proceso de pago seguro y fácil de usar, con opciones de pago como tarjeta de crédito, transferencia bancaria y pago contra entrega.
+
+\subsection*{Gestión de Pedidos}
+Los usuarios y los productores deben poder ver un historial de pedidos, incluyendo detalles como fecha, productos comprados y estado del pedido.
+
+\subsection*{Comunicación}
+El sistema debe permitir la comunicación entre usuarios y productores a través de mensajes privados para consultas sobre productos y pedidos.
+
+\section*{Requisitos No Funcionales}
+
+\subsection*{Rendimiento}
+El sistema debe ser capaz de manejar un alto volumen de usuarios y transacciones simultáneas sin experimentar una degradación significativa del rendimiento.
+
+\subsection*{Seguridad}
+Se deben implementar medidas de seguridad robustas para proteger la información del usuario, incluyendo encriptación de datos, autenticación de usuarios y prevención de ataques cibernéticos.
+
+\subsection*{Compatibilidad}
+La plataforma debe ser compatible con una amplia variedad de dispositivos y navegadores web populares para garantizar una experiencia de usuario consistente.
+
+\subsection*{Escalabilidad}
+El sistema debe ser escalable para permitir un crecimiento futuro en términos de usuarios y funcionalidades sin comprometer el rendimiento.
+
+\subsection{Interfaces externas}
+\label{sec:orgfd5391f}
+
+\subsection*{Interfaces de Usuario}
+
+\begin{enumerate}
+    \item \textbf{Interfaz de Registro:} El sistema debe proporcionar un formulario de registro fácil de usar donde los usuarios puedan ingresar su información básica, como nombre, dirección de correo electrónico y contraseña.
+    
+    \item \textbf{Interfaz de Inicio de Sesión:} Debe haber un formulario de inicio de sesión que permita a los usuarios ingresar sus credenciales para acceder a sus cuentas.
+    
+    \item \textbf{Interfaz de Búsqueda de Productos:} Se debe proporcionar una barra de búsqueda en la página principal que permita a los usuarios buscar productos por nombre, categoría o cualquier otro criterio relevante.
+    
+    \item \textbf{Interfaz de Visualización de Productos:} Cada producto debe tener una página de detalles que muestre imágenes, descripción, precio y otras características relevantes de manera clara y concisa.
+    
+    \item \textbf{Interfaz de Carrito de Compras:} El sistema debe tener una interfaz donde los usuarios puedan ver y gestionar los productos agregados a su carrito de compras antes de proceder al pago.
+    
+    \item \textbf{Interfaz de Proceso de Pago:} Debe haber una interfaz de pago intuitiva que guíe a los usuarios a través del proceso de compra, mostrando opciones de pago y recopilando la información necesaria de forma segura.
+\end{enumerate}
+
+\subsection*{Interfaces con Otros Sistemas}
+
+\begin{enumerate}
+    \item \textbf{Pasarelas de Pago:} PunoMarket debe integrarse con pasarelas de pago externas para procesar transacciones de forma segura y eficiente.
+    
+    \item \textbf{Servicios de Entrega:} Debe haber una integración con servicios de entrega para coordinar la entrega de productos comprados a los usuarios.
+\end{enumerate}
+
+\subsection*{Interfaces de Comunicaciones}
+
+\begin{enumerate}
+    \item \textbf{Comunicación entre Usuarios:} El sistema debe permitir la comunicación entre usuarios a través de mensajes privados para consultas sobre productos y pedidos.
+    
+    \item \textbf{Notificaciones por Correo Electrónico:} Debe haber un sistema de notificación por correo electrónico que envíe confirmaciones de pedidos, actualizaciones de estado y otras comunicaciones importantes a los usuarios.
+\end{enumerate}
+
+\subsection{Funciones}
+\label{sec:org307bb59}
+
+\section*{Funciones por Tipos de Usuarios}
+
+\subsection*{Productores Locales}
+\subsubsection*{Gestión de Productos:}
+\begin{itemize}
+    \item Permitir a los productores locales agregar, editar y eliminar productos de su inventario.
+    \item Proporcionar herramientas para gestionar la información de los productos, como nombre, descripción, precio y disponibilidad.
+\end{itemize}
+
+\subsubsection*{Gestión de Pedidos:}
+\begin{itemize}
+    \item Permitir a los productores ver y gestionar los pedidos recibidos, incluyendo su estado y detalles específicos.
+\end{itemize}
+
+\subsubsection*{Comunicación con Clientes:}
+\begin{itemize}
+    \item Facilitar la comunicación entre los productores y los clientes a través de mensajes privados para consultas sobre productos y pedidos.
+\end{itemize}
+
+\subsection*{Consumidores Locales}
+\subsubsection*{Búsqueda y Visualización de Productos:}
+\begin{itemize}
+    \item Permitir a los consumidores buscar productos por categoría, nombre o ubicación y ver detalles completos de los productos.
+\end{itemize}
+
+\subsubsection*{Carrito de Compras y Proceso de Pago:}
+\begin{itemize}
+    \item Proporcionar una experiencia de compra intuitiva que permita a los consumidores agregar productos al carrito, gestionar el contenido del carrito y proceder al pago de forma segura y eficiente.
+\end{itemize}
+
+\subsubsection*{Gestión de Perfil:}
+\begin{itemize}
+    \item Permitir a los consumidores gestionar su perfil, incluyendo información personal, dirección de entrega y preferencias de comunicación.
+\end{itemize}
+
+\subsection*{Administradores del Sitio}
+\subsubsection*{Gestión de Usuarios:}
+\begin{itemize}
+    \item Permitir a los administradores del sitio gestionar cuentas de usuario, incluyendo registro, inicio de sesión, edición y eliminación de cuentas.
+\end{itemize}
+
+\subsubsection*{Análisis de Datos:}
+\begin{itemize}
+    \item Proporcionar herramientas de análisis de datos para que los administradores puedan obtener información sobre el rendimiento del sitio, comportamiento del usuario y tendencias de compra.
+\end{itemize}
+
+\subsubsection*{Gestión de Contenidos:}
+\begin{itemize}
+    \item Facilitar la gestión de contenido del sitio, incluyendo la creación, edición y eliminación de páginas estáticas, categorías de productos y otros elementos de contenido.
+\end{itemize}
+
+\section*{Funciones por Objetos}
+
+\subsection*{Productos}
+\subsubsection*{Gestión de Productos:}
+\begin{itemize}
+    \item Permitir a los usuarios agregar, editar y eliminar productos de su inventario.
+    \item Proporcionar herramientas para gestionar la información de los productos, como nombre, descripción, precio y disponibilidad.
+\end{itemize}
+
+\subsection*{Pedidos}
+\subsubsection*{Gestión de Pedidos:}
+\begin{itemize}
+    \item Permitir a los usuarios ver y gestionar los pedidos recibidos, incluyendo su estado y detalles específicos.
+\end{itemize}
+
+\subsection*{Mensajes}
+\subsubsection*{Comunicación con Clientes:}
+\begin{itemize}
+    \item Facilitar la comunicación entre los usuarios y los clientes a través de mensajes privados para consultas sobre productos y pedidos.
+\end{itemize}
+
+\section*{Funciones por Estímulos}
+
+\subsection*{Búsqueda}
+\subsubsection*{Búsqueda y Visualización de Productos:}
+\begin{itemize}
+    \item Permitir a los usuarios buscar productos por categoría, nombre o ubicación y ver detalles completos de los productos.
+\end{itemize}
+
+\subsection*{Compra}
+\subsubsection*{Carrito de Compras y Proceso de Pago:}
+\begin{itemize}
+    \item Proporcionar una experiencia de compra intuitiva que permita a los usuarios agregar productos al carrito, gestionar el contenido del carrito y proceder al pago de forma segura y eficiente.
+\end{itemize}
+
+\subsection*{Interacción de Usuario}
+\subsubsection*{Gestión de Perfil:}
+\begin{itemize}
+    \item Permitir a los usuarios gestionar su perfil, incluyendo información personal, dirección de entrega y preferencias de comunicación.
+\end{itemize}
+
+\section*{Funciones por Jerarquía Funcional}
+
+\subsection*{Entrada}
+\begin{itemize}
+    \item Capturar la información ingresada por los usuarios, como datos de productos, información de perfil y detalles de pedidos.
+\end{itemize}
+
+\subsection*{Proceso}
+\begin{itemize}
+    \item Procesar la información capturada para llevar a cabo las operaciones requeridas, como agregar productos al inventario, procesar pedidos y actualizar perfiles de usuario.
+\end{itemize}
+
+\subsection*{Salida}
+\begin{itemize}
+    \item Presentar la información procesada de manera adecuada para los usuarios, mostrando listados de productos, resúmenes de pedidos y perfiles de usuario actualizados.
+\end{itemize}
+
+\subsection{Requisitos de rendimiento}
+\label{sec:org94bc543}
+
+\begin{itemize}
+    \item El sistema debe ser capaz de soportar al menos 1000 usuarios simultáneos conectados.
+ \item El tiempo de respuesta promedio para las solicitudes de los usuarios no debe exceder los 2 segundos.
+ \item El sistema debe ser capaz de manejar al menos 100 transacciones por segundo durante las horas pico.
+ \item Se espera que la base de datos pueda almacenar hasta un millón de registros.
+ \item El sistema debe ser escalable para manejar un aumento del 20 por ciento en la carga de usuarios dentro de un período de seis meses sin degradación significativa del rendimiento.
+ \item El tiempo de inactividad planificado para mantenimiento no debe exceder el 1 por ciento del tiempo total de operación mensual.
+ \item Se espera que el sistema registre y almacene datos de actividad de usuario para análisis posterior.
+\end{itemize}
+\subsection{Restricciones de diseño}
+\label{sec:org49fe900}
+
+\begin{itemize}
+    \item La aplicación debe ser desarrollada utilizando tecnologías de código abierto para garantizar la accesibilidad y la escalabilidad.
+\item La aplicación debe ser compatible con los navegadores web más populares, como Google Chrome, Mozilla Firefox, Safari y Microsoft Edge, en sus versiones más recientes.
+\item Se debe utilizar un enfoque de diseño responsivo para garantizar que la aplicación sea compatible con dispositivos móviles, tabletas y computadoras de escritorio.
+\item El diseño de la interfaz de usuario debe seguir las pautas de diseño de Material Design o Bootstrap para garantizar una experiencia de usuario coherente y atractiva.
+\item Se deben implementar medidas de seguridad robustas, como cifrado SSL, para proteger la privacidad y la integridad de los datos de los usuarios.
+\item La aplicación debe ser desarrollada utilizando prácticas de desarrollo seguro de acuerdo con los estándares OWASP para minimizar las vulnerabilidades de seguridad.
+\item Se debe implementar una arquitectura de software modular y escalable para facilitar el mantenimiento y la evolución continua de la aplicación.
+\item La aplicación debe seguir los principios de diseño centrado en el usuario para garantizar que las características y la navegación sean intuitivas y fáciles de usar para los usuarios finales.
+\item Se deben implementar estrategias de almacenamiento en caché y optimización de consultas de base de datos para mejorar el rendimiento y la velocidad de carga de la aplicación.
+\end{itemize}
+\subsection{Atributos del sistema}
+\label{sec:orgd0babc0}
+
+\subsection{Fiabilidad}
+\begin{itemize}
+    \item La aplicación debe ser altamente confiable y estar disponible para su uso durante la mayor parte del tiempo.
+    \item Se deben implementar mecanismos de respaldo y recuperación de datos para minimizar el tiempo de inactividad en caso de fallas del sistema.
+    \item La tasa de errores y fallos de la aplicación debe ser baja, asegurando una experiencia de usuario fluida y sin interrupciones.
+\end{itemize}
+
+\subsection{Mantenibilidad}
+\begin{itemize}
+    \item El código fuente debe estar bien estructurado y documentado para facilitar su mantenimiento y futuras actualizaciones.
+    \item Se debe seguir una metodología de desarrollo de software que fomente la modularidad y la reutilización de código.
+    \item Se deben establecer prácticas de control de versiones y gestión de cambios para administrar eficazmente las actualizaciones y correcciones de errores.
+\end{itemize}
+
+\subsection{Portabilidad}
+\begin{itemize}
+    \item La aplicación debe ser compatible con múltiples plataformas y dispositivos, incluyendo computadoras de escritorio, dispositivos móviles y tabletas.
+    \item Se deben evitar dependencias específicas del sistema operativo para garantizar que la aplicación pueda ejecutarse en diferentes entornos sin modificaciones significativas.
+\end{itemize}
+
+\subsection{Seguridad}
+\begin{itemize}
+    \item Se debe implementar un sistema de autenticación seguro, como un inicio de sesión con nombre de usuario y contraseña, para proteger el acceso a las cuentas de usuario.
+    \item Se deben aplicar técnicas de cifrado para proteger la confidencialidad de los datos del usuario durante la transmisión y el almacenamiento.
+    \item Se deben establecer controles de acceso adecuados para limitar las acciones que pueden realizar diferentes tipos de usuarios.
+    \item Se deben realizar pruebas de seguridad regulares, como pruebas de penetración, para identificar y corregir posibles vulnerabilidades en la aplicación.
+\end{itemize}
+
+\subsection{Otros requisitos}
+\label{sec:org31d2978}
+
+\begin{itemize}
+\item Requisitos de cumplimiento legal: La aplicación debe cumplir con todas las leyes y regulaciones locales, regionales y nacionales relacionadas con la privacidad de los datos, la protección del consumidor y cualquier otra área pertinente.
+\item Requisitos de idioma: La aplicación debe admitir múltiples idiomas para satisfacer las necesidades de una audiencia diversa.
+\item Requisitos de documentación: Se debe proporcionar documentación detallada para los usuarios finales, administradores del sistema y desarrolladores, que incluya guías de usuario, manuales de instalación y documentación técnica.
+\item Requisitos de capacitación: Se deben ofrecer recursos de capacitación y soporte para ayudar a los usuarios a comprender y utilizar eficazmente la aplicación.
+\item Requisitos de disponibilidad y escalabilidad: La aplicación debe estar diseñada para escalar fácilmente a medida que aumenta la carga de usuarios y mantener altos niveles de disponibilidad incluso durante períodos de tráfico intenso.
+\item Requisitos de auditoría y registro: Se deben implementar capacidades de auditoría y registro para rastrear actividades de usuarios, cambios en los datos y eventos importantes del sistema con fines de seguridad y cumplimiento.
+\item Requisitos de integración de terceros: La aplicación debe ser capaz de integrarse con otros sistemas y servicios externos, como sistemas de pago, herramientas de análisis y redes sociales, según sea necesario.
+\item Requisitos de respaldo y recuperación: Se deben establecer procedimientos y políticas de respaldo regular para proteger los datos del usuario y permitir una rápida recuperación en caso de pérdida de datos o falla del sistema.
+
+\end{itemize} 
+
+\end{document}
