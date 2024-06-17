@@ -1,0 +1,113 @@
+# METRICA - Tiempo de respuesta de incidentes de seguridad   
+  \documentclass[a4,10pt]{article}
+  \usepackage[margin=1in]{geometry}
+  \usepackage{fancyhdr}
+  \usepackage{graphicx}
+  \usepackage{cancel}
+  \usepackage[english]{babel}
+  \usepackage{hyperref}
+  \usepackage{listings}
+  \usepackage[
+  backend=biber,
+  style=ieee,
+  ]{biblatex}
+  \usepackage{graphicx}
+  
+  % Definir una nueva función para agregar imágenes
+  \newcommand{\agregarimagen}[2]{%
+      \begin{figure}[htbp]%
+          \centering%
+          \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{#1}%
+          \caption{#2}%
+          \label{fig:#1}%
+      \end{figure}%
+  }
+  
+  \addbibresource{ref.bib}
+  
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{FINESI}
+  \fancyhead[CO,C]{Ingeniería de Software I}
+  \fancyhead[RO,R]{\today}
+  \fancyfoot[LO,L]{Denilzon Robinho Tapara Tristan}
+  \fancyfoot[CO,C]{}
+  \fancyfoot[RO,R]{Page. \thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+  
+  \begin{document}
+  \section{Tiempo de Respuesta de Incidentes de Seguridad}
+  
+  \hspace{0.6cm}Es una métrica que mide el tiempo total transcurrido desde el momento en que se detecta un incidente de seguridad hasta que se ha tomado una acción para mitigar o resolver el problema. Esta métrica es crucial para evaluar la eficacia de las políticas y procedimientos de seguridad de una organización.
+  
+  \subsection{Definición y Tipos}
+  
+  \hspace{0.6cm} {Respuesta a incidentes:} Es el tiempo promedio que transcurre desde que se descubre una vulnerabilidad o punto débil hasta que se implanta una acción correctiva. Refleja la capacidad de respuesta del equipo para actuar después de que se descubren las vulnerabilidades. \cite{estevez2009titulo}.
+  \space
+  Las métricas de seguridad facilitan el cumplimiento de las metas y objetivos, cuantificando la implantación
+  de los controles de seguridad y la eficacia y eficiencia de los mismos, analizando la adecuación de los
+  procesos de seguridad e identificando posibles acciones de mejora.\cite{estevez2009titulo}
+  \space
+  {Herramienta de gestión de Incidentes:} Software en el cual serealiza el registro de
+  incidentesy el cual permite realizar la trazabilidad del incidente validando los comentarios
+  existentes sobre el incidente, la solución, los tiempos de respuesta. \cite{martinez2016evaluacion}.
+  \begin{itemize}
+      \item \textbf{Tiempo de Detección (TTD):} Tiempo desde que ocurre el incidente hasta que es detectado.
+      \item \textbf {Tiempo de Contención (TTC):} Tiempo desde la detección del incidente hasta que se ha contenido para evitar que se propague o cause más daño.
+      \item \textbf {Tiempo de Remediación (TTR):} Tiempo desde que se ha contenido el incidente hasta que se ha remediado completamente. 
+       \item \textbf {Tiempo de Recuperación (TTR):} Tiempo desde que se ha remediado el incidente hasta que todos los sistemas afectados vuelven a la normalidad y operan sin problemas. 
+  \end{itemize}
+  
+  \subsection{Aplicaciones y Limitaciones}
+  \subsubsection{Aplicacion}
+   En base a la información recopilada se observó que el proceso de implementación del CSIRT, se conforma de cinco etapas con objetivos y actividades específicas
+  \begin{itemize}
+      \item \textbf {Alistamiento y definición de procedimientos:} Definir constitución y alcance, determinar estructura organizativa, Determinar los servicios.\cite{andradediseno}.
+      \ \item \textbf {Capacitación y entrenamiento.:} Establecimiento de relaciones de confianza, recopilación de información acerca de incidentes de seguridad informática.\cite{andradediseno}.
+       \item \textbf {Gestión de alertas e investigación:}Categorización y priorización de incidentes y amenazas, análisis de incidentes de seguridad informática, definición de procedimiento para el manejo de incidentes de seguridad informatica. \cite{andradediseno}.
+        \item \textbf {Respuesta a incidentes y apoyo a la comunidad:}Manejo de incidentes, generación de advertencias a la comunidad, notificación de mejores prácticas de seguridad informática.\cite{andradediseno}.
+       \item \textbf {Operación, revisión y mejoramiento continuo:}Generación de intercambio de experiencias e información para mejorar la administración de incidentes de seguridad, generación de reportes de incidentes y vulnerabilidades detectadas o informadas.\cite{andradediseno}.
+        
+  \end{itemize}
+  \subsubsection{Limitaciones}
+  \begin{itemize}
+      \item \textbf Existe limitada documentación sobre la
+  implementación de CSIRT´s académicos, por lo cual esta tesis aporta a la evaluación de los mismos
+  a nivel latinoamericano \cite{andradediseno}.
+      \item \textbf Actualmente la implementación de CSIRT´s está enfocada a organizaciones con fines delucro, en las cuáles se puede justificar la inversión financiera frente al costo de incidentes de
+  seguridad informática. \cite{andradediseno}
+      \item \textbf  Los sistemas de detección pueden generar falsos positivos (incidentes que no son reales) o falsos negativos (incidentes reales que no se detectan), afectando la precisión de la métrica.\cite{andradediseno}. 
+      \item \textbf La disponibilidad y competencia del equipo de respuesta a incidentes pueden variar, lo que puede afectar el tiempo de respuesta. Equipos más grandes y mejor entrenados pueden responder más rápido que equipos pequeños o menos experimentados.
+      
+  \end{itemize}
+   Se presenta un ejemplo en python del tiempo de Respuesta de Incidentes de Seguridad\texttt{radon}:
+  
+  \begin{lstlisting}[language=Python, caption=Ejemplo de código en Python para calcular  timepo de respuesta]
+  import pandas as pd
+  from datetime import datetime
+  # Datos de ejemplo de incidentes de seguridad
+  data = {
+      'Incidente': ['Incidente1', 'Incidente2', 'Incidente3'],
+      'Hora de Detección': ['2023-06-01 12:00:00', '2023-06-02 14:30:00', '2023-06-03 09:15:00'],
+      'Hora de Contención': ['2023-06-01 13:00:00', '2023-06-02 15:00:00', '2023-06-03 10:00:00'],
+      'Hora de Remediación': ['2023-06-01 15:00:00', '2023-06-02 16:30:00', '2023-06-03 12:00:00'],
+      'Hora de Recuperación': ['2023-06-01 16:00:00', '2023-06-02 17:00:00', '2023-06-03 13:00:00']
+  }
+  # Crear DataFrame
+  df = pd.DataFrame(data)
+  
+  # Convertir a datetime
+  for col in df.columns[1:]:
+      df[col] = pd.to_datetime(df[col])
+  # Calcular tiempos de respuesta
+  df['Tiempo de Detección'] = (df['Hora de Contención'] - df['Hora de Detección']).astype('timedelta64[m]')
+  df['Tiempo de Contención'] = (df['Hora de Remediación'] - df['Hora de Contención']).astype('timedelta64[m]')
+  df['Tiempo de Remediación'] = (df['Hora de Recuperación'] - df['Hora de Remediación']).astype('timedelta64[m]')
+  df['Tiempo Total de Respuesta'] = df['Tiempo de Detección'] + df['Tiempo de Contención'] + df['Tiempo de Remediación']
+  # Resultados
+  print(df[['Incidente', 'Tiempo de Detección', 'Tiempo de Contención', 'Tiempo de Remediación', 'Tiempo Total de Respuesta']])
+  
+  \end{lstlisting}
+  \printbibliography
+  
+  \end{document}
